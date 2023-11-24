@@ -1,0 +1,6 @@
+cmd/carapace-spec-man/carapace-spec-man
+dist
+docs/book
+go.work
+go.work.sum
+profile.cov
