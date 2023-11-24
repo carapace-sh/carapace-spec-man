@@ -32,7 +32,6 @@ completion:
 > - missing flags or subcommands
 > - invalid subcommands (`-` in manpage name is assumed as subcommand delimiter)
 > - description not truncated well
-> - all flags are assumed boolean
 >
 > It is recommended to prepare them manually for [carapace-parse] instead.
 
