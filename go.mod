@@ -1,6 +1,6 @@
 module github.com/rsteube/carapace-spec-man
 
-go 1.21.2
+go 1.21
 
 require (
 	github.com/lmorg/murex v0.0.0-20231013090319-c15107051f5b
