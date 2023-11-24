@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os/exec"
 	"regexp"
+	"sort"
 	"strings"
 
 	"github.com/lmorg/murex/utils/man"
@@ -28,6 +29,22 @@ func getPages(exe string) (map[string]string, error) {
 	return pages, nil
 }
 
+func flatten(m map[string]string) map[string]string {
+	byDescription := make(map[string][]string)
+	for key, value := range m {
+		byDescription[value] = append(byDescription[value], key)
+	}
+
+	flattened := make(map[string]string)
+	for key, value := range byDescription {
+		sort.Slice(value, func(i, j int) bool {
+			return len(value[i]) < len(value[j])
+		})
+		flattened[strings.Join(value, ", ")] = key
+	}
+	return flattened
+}
+
 func parse(manpage string) (*command.Command, error) {
 	_, m := man.ParseByStdio(strings.NewReader(manpage))
 
@@ -41,7 +58,7 @@ func parse(manpage string) (*command.Command, error) {
 	}
 	cmd.Completion.PositionalAny = []string{"$files"}
 
-	for flag, description := range m {
+	for flag, description := range flatten(m) {
 		if strings.HasPrefix(description, "eg: ") {
 			_, description, _ = strings.Cut(description, "--") // TODO check if found
 		}
