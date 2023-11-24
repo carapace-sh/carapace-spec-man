@@ -29,23 +29,32 @@ func getPages(exe string) (map[string]string, error) {
 	return pages, nil
 }
 
-func flatten(m map[string]string) map[string]string {
+type flag struct {
+	definition  string
+	description string
+}
+
+func flatten(m map[string]string) map[string]flag {
 	byDescription := make(map[string][]string)
 	for key, value := range m {
 		byDescription[value] = append(byDescription[value], key)
 	}
 
-	flattened := make(map[string]string)
+	flattened := make(map[string]flag)
 	for key, value := range byDescription {
 		sort.Slice(value, func(i, j int) bool {
 			return len(value[i]) < len(value[j])
 		})
-		flattened[strings.Join(value, ", ")] = key
+		name := strings.TrimLeft(value[len(value)-1], "-")
+		flattened[name] = flag{
+			definition:  strings.Join(value, ", "),
+			description: key,
+		}
 	}
 	return flattened
 }
 
-func parse(manpage string) (*command.Command, error) {
+func parse(manpage string, trimDescriptions bool) (*command.Command, error) {
 	_, m := man.ParseByStdio(strings.NewReader(manpage))
 
 	tokenizer, err := english.NewSentenceTokenizer(nil)
@@ -56,19 +65,27 @@ func parse(manpage string) (*command.Command, error) {
 	cmd := &command.Command{
 		Flags: make(map[string]string),
 	}
+	cmd.Completion.Flag = make(map[string][]string)
 	cmd.Completion.PositionalAny = []string{"$files"}
 
-	for flag, description := range flatten(m) {
-		if strings.HasPrefix(description, "eg: ") {
-			_, description, _ = strings.Cut(description, "--") // TODO check if found
+	for name, flag := range flatten(m) {
+		if strings.HasPrefix(flag.description, "eg: ") {
+			if trimDescriptions {
+				_, flag.description, _ = strings.Cut(flag.description, "--") // TODO check if found
+			}
+			flag.definition += "=" // TODO check test after eg: for optarg (`=..`, `[=..]`)
+
+			cmd.Completion.Flag[name] = []string{"$files"}
 		}
 
-		if tokens := tokenizer.Tokenize(description); len(tokens) > 0 {
-			description = tokens[0].Text
-			description = strings.TrimSuffix(description, ".")
-			description = strings.TrimSpace(description)
-			cmd.Flags[flag] = description
+		if trimDescriptions {
+			if tokens := tokenizer.Tokenize(flag.description); len(tokens) > 0 {
+				flag.description = tokens[0].Text
+				flag.description = strings.TrimSuffix(flag.description, ".")
+				flag.description = strings.TrimSpace(flag.description)
+			}
 		}
+		cmd.Flags[flag.definition] = flag.description
 	}
 
 	return cmd, nil
@@ -84,13 +101,13 @@ func loadPage(page string) (string, error) {
 
 type pageMap map[string]string
 
-func (p pageMap) traverse(page string) (*command.Command, error) {
+func (p pageMap) traverse(page string, trimDescriptions bool) (*command.Command, error) {
 	content, err := loadPage(page)
 	if err != nil {
 		return nil, err
 	}
 
-	cmd, err := parse(content)
+	cmd, err := parse(content, trimDescriptions)
 	if err != nil {
 		return nil, err
 	}
@@ -105,7 +122,7 @@ func (p pageMap) traverse(page string) (*command.Command, error) {
 			continue
 		}
 		if trimmed := strings.TrimPrefix(name, page+"-"); !strings.Contains(trimmed, "-") {
-			subcmd, err := p.traverse(name)
+			subcmd, err := p.traverse(name, trimDescriptions)
 			if err != nil {
 				return nil, err
 			}
@@ -116,10 +133,10 @@ func (p pageMap) traverse(page string) (*command.Command, error) {
 	return cmd, nil
 }
 
-func Command(exe string) (*command.Command, error) {
+func Command(exe string, trimDescriptions bool) (*command.Command, error) {
 	pages, err := getPages(exe)
 	if err != nil {
 		return nil, err
 	}
-	return pageMap(pages).traverse(exe)
+	return pageMap(pages).traverse(exe, trimDescriptions)
 }
