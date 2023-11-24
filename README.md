@@ -26,3 +26,19 @@ completion:
     positionalany:
         - $files
 ```
+
+> [!IMPORTANT]
+> Manpages are highly inconsistent so the results will contain errors.
+> 
+> Issues you will encounter:
+> - parsing failing completely
+> - parsing being stuck (`git` has this issue)
+> - missing flags or subcommands
+> - invalid subcommands (`-` in manpage name is assumed as subcommand delimiter)
+> - description not truncated well
+> - all flags are assumed boolean
+> - shorthand flags aren't grouped with their longhand 
+>
+> It is recommended to prepare them manually for [carapace-parse] instead.
+
+[carapace-parse]:https://github.com/rsteube/carapace-bin/tree/master/cmd/carapace-parse
