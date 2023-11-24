@@ -6,7 +6,6 @@ builds:
       - CGO_ENABLED=0
     goos:
       - linux
-      - windows
       - darwin
     main: ./cmd/carapace-spec-man
     binary: carapace-spec-man
@@ -32,20 +31,11 @@ brews:
     description: "generate spec from manpages"
     homepage: "https://github.com/rsteube/carapace-spec"
     license: "MIT"
-    tap:
+    repository:
       owner: rsteube
       name: homebrew-tap
       token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
-scoop:
-  description: "generate spec from manpages"
-  homepage: "https://github.com/rsteube/carapace-spec"
-  license: "MIT"
-  bucket:
-    owner: rsteube
-    name: scoop-bucket
-    token: "{{ .Env.GORELEASER_GITHUB_TOKEN }}"
-  commit_msg_template: "Scoop update for {{ .ProjectName }} version {{ .Tag }}"
 
 aurs:
   -
