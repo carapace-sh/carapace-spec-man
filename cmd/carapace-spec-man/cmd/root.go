@@ -10,7 +10,7 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "carapace-spec-man",
+	Use:   "carapace-spec-man <executable>",
 	Short: "generate spec from manpages",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
