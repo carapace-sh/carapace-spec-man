@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/lmorg/murex v0.0.0-20231013090319-c15107051f5b
 	github.com/neurosnap/sentences v1.1.2
-	github.com/rsteube/carapace v0.47.2
+	github.com/rsteube/carapace v0.47.3
 	github.com/rsteube/carapace-spec v0.11.1
 	github.com/spf13/cobra v1.8.0
 	gopkg.in/yaml.v3 v3.0.1
