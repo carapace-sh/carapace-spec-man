@@ -45,8 +45,8 @@ github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec h1:W09IVJc94
 github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec/go.mod h1:qqbHyh8v60DhA7CoWK5oRCqLrMHRGoxYCSS9EjAz6Eo=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
-github.com/rsteube/carapace v0.47.2 h1:F61B4PrN6Czx+sd4KF7p65muajg6iuXEvnzEkeXEjjs=
-github.com/rsteube/carapace v0.47.2/go.mod h1:4ZC5bulItu9t9sZ5yPcHgPREd8rPf274Q732n+wfl/o=
+github.com/rsteube/carapace v0.47.4 h1:LwnkFsvRxc2WhZjM63QS7sCi3DlM9XGuATQM5rehgps=
+github.com/rsteube/carapace v0.47.4/go.mod h1:4ZC5bulItu9t9sZ5yPcHgPREd8rPf274Q732n+wfl/o=
 github.com/rsteube/carapace-shlex v0.1.1 h1:fRQEBBKyYKm4TXUabm4tzH904iFWSmXJl3UZhMfQNYU=
 github.com/rsteube/carapace-shlex v0.1.1/go.mod h1:zPw1dOFwvLPKStUy9g2BYKanI6bsQMATzDMYQQybo3o=
 github.com/rsteube/carapace-spec v0.11.1 h1:LUNFbGOucWj4C74JMLvPuqKDFNGFGMHunWyiUfTM0BU=
