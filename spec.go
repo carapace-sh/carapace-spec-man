@@ -7,9 +7,9 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/carapace-sh/carapace-spec/pkg/command"
 	"github.com/lmorg/murex/utils/man"
 	"github.com/neurosnap/sentences/english"
-	"github.com/rsteube/carapace-spec/pkg/command"
 )
 
 func getPages(exe string) (map[string]string, error) {
