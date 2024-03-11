@@ -1,6 +1,6 @@
 # carapace-spec-man
 
-[Spec](https://github.com/rsteube/carapace-spec) generation for manpages.
+[Spec](https://github.com/carapace-sh/carapace-spec) generation for manpages.
 
 ```yaml
 name: touch

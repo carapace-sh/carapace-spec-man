@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/rsteube/carapace"
-	spec "github.com/rsteube/carapace-spec-man"
+	"github.com/carapace-sh/carapace"
+	spec "github.com/carapace-sh/carapace-spec-man"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v3"
 )
