@@ -43,4 +43,4 @@ completion:
 >
 > It is recommended to prepare them manually for [carapace-parse] instead.
 
-[carapace-parse]:https://github.com/rsteube/carapace-bin/tree/master/cmd/carapace-parse
+[carapace-parse]:https://github.com/carapace-sh/carapace-bin/tree/master/cmd/carapace-parse
