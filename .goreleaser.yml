@@ -29,7 +29,7 @@ changelog:
 brews:
   -
     description: "generate spec from manpages"
-    homepage: "https://github.com/rsteube/carapace-spec-man"
+    homepage: "https://github.com/carapace-sh/carapace-spec-man"
     license: "MIT"
     repository:
       owner: rsteube
@@ -40,7 +40,7 @@ brews:
 aurs:
   -
     description: "generate spec from manpages"
-    homepage: "https://github.com/rsteube/carapace-spec-man"
+    homepage: "https://github.com/carapace-sh/carapace-spec-man"
     license: "MIT"
     maintainers:
       - rsteube <rsteube@users.noreply.github.com>
@@ -50,7 +50,7 @@ aurs:
 nfpms:
   -
     description: "generate spec from manpages"
-    homepage: "https://github.com/rsteube/carapace-spec-man"
+    homepage: "https://github.com/carapace-sh/carapace-spec-man"
     license: "MIT"
     maintainer: rsteube <rsteube@users.noreply.github.com>
     formats:
