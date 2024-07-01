@@ -3,7 +3,7 @@ module github.com/carapace-sh/carapace-spec-man
 go 1.21
 
 require (
-	github.com/carapace-sh/carapace v1.0.0
+	github.com/carapace-sh/carapace v1.1.1
 	github.com/carapace-sh/carapace-spec v1.0.0
 	github.com/lmorg/murex v0.0.0-20231013090319-c15107051f5b
 	github.com/neurosnap/sentences v1.1.2
@@ -12,7 +12,7 @@ require (
 )
 
 require (
-	github.com/carapace-sh/carapace-shlex v1.0.0 // indirect
+	github.com/carapace-sh/carapace-shlex v1.0.1 // indirect
 	github.com/creack/pty v1.1.18 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
