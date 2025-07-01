@@ -3,7 +3,7 @@ module github.com/carapace-sh/carapace-spec-man
 go 1.23.1
 
 require (
-	github.com/carapace-sh/carapace v1.8.5
+	github.com/carapace-sh/carapace v1.8.6
 	github.com/carapace-sh/carapace-spec v1.1.2
 	github.com/lmorg/murex v0.0.0-20231013090319-c15107051f5b
 	github.com/neurosnap/sentences v1.1.2
