@@ -7,7 +7,7 @@ require (
 	github.com/carapace-sh/carapace-spec v1.3.5
 	github.com/lmorg/murex v0.0.0-20231013090319-c15107051f5b
 	github.com/neurosnap/sentences v1.1.2
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 	gopkg.in/yaml.v3 v3.0.1
 )
 
