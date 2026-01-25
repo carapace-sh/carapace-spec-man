@@ -1,9 +1,9 @@
 module github.com/carapace-sh/carapace-spec-man
 
-go 1.23.1
+go 1.24
 
 require (
-	github.com/carapace-sh/carapace v1.10.3
+	github.com/carapace-sh/carapace v1.11.0
 	github.com/carapace-sh/carapace-spec v1.3.5
 	github.com/lmorg/murex v0.0.0-20231013090319-c15107051f5b
 	github.com/neurosnap/sentences v1.1.2
